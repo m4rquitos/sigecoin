@@ -11,7 +11,7 @@ const cors = require('cors');
 const authRoutes = require('./router/auth.router');
 const userRoutes = require('./router/user.router');
 const menuRoutes = require('./router/menu.router');
-const productRoute = require('./router/user.router');
+// const productRoute = require('./router/product.routes');
 
 const app = express();
 
@@ -28,11 +28,11 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use('/api', productRoute);
 
 app.use(express.static('uploads'));
 app.use(cors());
 
+// app.use('/api', productRoute);
 app.use(`/api/${API_VERSION}`, authRoutes);
 app.use(`/api/${API_VERSION}`, userRoutes);
 app.use(`/api/${API_VERSION}`, menuRoutes);

@@ -1,10 +1,9 @@
-import Producto from '../models/product.model.js'
-import path from 'path';
-import { fileURLToPath } from 'url';
-import fs from 'fs';
+const Producto = require('../models/product.model.js');
+const path = require('path');
+const { fileURLToPath } = require('url');
+const fs = require('fs');
 
-
-export async function registerProduct(req, res){
+async function registerProduct(req, res){
     const __filename = fileURLToPath(import.meta.url);
     const __dirname = path.dirname(__filename);
 
@@ -15,17 +14,14 @@ export async function registerProduct(req, res){
         const productFound = await Producto.findOne({ codigoProduct })
         if(productFound) return res.status(400).json({ msg: 'Error Id_Product Duplicate' })
 
-        // Construir la ruta al directorio de archivos
         const archivosDirectory = path.resolve(__dirname, '..', 'uploads', 'productos', codigoProduct);
 
-        // Verificar si el directorio existe, si no, créalo
         if (!fs.existsSync(archivosDirectory)) {
             fs.mkdirSync(archivosDirectory, { recursive: true });
         }
 
-        // Construir la ruta del archivo con el nombre original del archivo
         const rutaArchivoRelativa = path.join('uploads', 'productos', codigoProduct, images.name);
-        const rutaSinUpload = path.join('productos', codigoProduct ,images.name)
+        const rutaSinUpload = path.join('productos', codigoProduct, images.name)
 
         fs.writeFileSync(path.resolve(__dirname, '..', rutaArchivoRelativa), images.data);
 
@@ -48,3 +44,4 @@ export async function registerProduct(req, res){
     }
 }
 
+module.exports = { registerProduct };
