@@ -9,6 +9,6 @@ api.get("/menu", MenuController.getMenus)
 api.patch("/menu/:id", [md_auth.asureAuth], MenuController.updateMenu)
 api.delete("/menu/:id", [md_auth.asureAuth], MenuController.deleteMenu)
 
-//endpints
+//endpoints
 
 module.exports = api

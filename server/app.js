@@ -11,6 +11,7 @@ const cors = require('cors');
 const authRoutes = require('./router/auth.router');
 const userRoutes = require('./router/user.router');
 const menuRoutes = require('./router/menu.router');
+const facturaRoutes = require('./router/factura.router');
 // const productRoute = require('./router/product.routes');
 
 const app = express();
@@ -36,5 +37,6 @@ app.use(cors());
 app.use(`/api/${API_VERSION}`, authRoutes);
 app.use(`/api/${API_VERSION}`, userRoutes);
 app.use(`/api/${API_VERSION}`, menuRoutes);
+app.use(`/api/${API_VERSION}`, facturaRoutes);
 
 module.exports = app;
