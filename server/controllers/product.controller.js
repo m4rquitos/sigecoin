@@ -13,7 +13,7 @@ async function registerProduct(req, res) {
         if (productFound) return res.status(400).json({ msg: 'Error Id_Product Duplicate' });
 
         // Construir la ruta al directorio de archivos
-        const archivosDirectory = path.resolve(__dirname, '..', 'uploads', 'productos', codigoProduct);
+        const archivosDirectory = path.resolve(__dirname, 'uploads', 'productos', codigoProduct);
 
         // Verificar si el directorio existe, si no, créalo
         if (!fs.existsSync(archivosDirectory)) {
@@ -24,7 +24,7 @@ async function registerProduct(req, res) {
         const rutaArchivoRelativa = path.join('uploads', 'productos', codigoProduct, images.name);
         const rutaSinUpload = path.join('productos', codigoProduct, images.name);
 
-        fs.writeFileSync(path.resolve(__dirname, '..', rutaArchivoRelativa), images.data);
+        fs.writeFileSync(path.resolve(__dirname, rutaArchivoRelativa), images.data);
 
         const newProduct = new Producto({
             codigoProduct: codigoProduct,
