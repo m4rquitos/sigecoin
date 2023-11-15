@@ -18,7 +18,6 @@ const FacturaSchema = mongoose.Schema({
         default: Date.now,
     },
     direccion: String,
-    proveedor: String,
     nombreProduct: [{
         nombre: {
             type: String,

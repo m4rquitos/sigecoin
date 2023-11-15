@@ -1,13 +1,8 @@
-const express = require('express')
+const { Router } = require('express');
+const { registerProduct } = require('../controllers/product.controller.js');
 
-const controllerProduct = require('../controllers/product.controller.js')
+const api = Router();
 
+api.post('/registerProduct', registerProduct);
 
-const Router = express.Router()
-
-const api = Router()
-
-api.post('/registerProduct', controllerProduct.registerProduct)
-
-
-module.exports = api
+module.exports = api;
