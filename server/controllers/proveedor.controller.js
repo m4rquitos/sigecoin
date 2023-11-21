@@ -31,6 +31,34 @@ const Proveedor = require("../models/proveedor.model")
     })
     }
 
+    async function updateProveedor(req, res) {
+        const { id } = req.params
+        const proveedorData = req.body
+
+        Proveedor.findByIdAndUpdate({ _id: id}, proveedorData, (error) => {
+            if(error){
+                res.status(400).send({msg: "Error al actualizar el proveedor"})
+            } else {
+                res.status(200).send({msg: "Actualizado correctamente"})
+            }
+        })
+    }
+
+    async function deleteProveedor(req, res){
+        const { id } = req.params
+
+        Proveedor.findByIdAndDelete(id, (error) => {
+            if(error){
+                res.status(400).send({msg: "Error al eliminar el proveedor"})
+            } else {
+                res.status(200).send({msg: "Se elimino correctamente"})
+            }
+        })
+
+    }
+
     module.exports = {
         register,
+        deleteProveedor,
+        updateProveedor,
     }
