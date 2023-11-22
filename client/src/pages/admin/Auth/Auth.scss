@@ -1,7 +1,7 @@
 @import "/src/scss/index.scss";
 
 .auth {
-    background: linear-gradient(to bottom, #333, #000);
+    background: linear-gradient(to bottom, #333, #04d7ef);
     background-size: cover;
     height: 100vh;
     background-position: center;
@@ -23,7 +23,7 @@
         .item {
             width: 50%;
             justify-content: center;
-            background-color: #fff !important;
+            background-color: #f3ecec !important;
             border-radius: 0 !important;
             border-top: 4px solid $border-grey !important;
             font-size: 18px;
@@ -33,6 +33,46 @@
             font-weight: normal;
             border-radius: 0 !important;
             border-top-color: $primary !important;
+        }
+
+        @media (max-width: 280px) {
+            .auth {
+                width: 100%;
+            }
+
+            .auth__forms {
+                width: 250px;
+            }
+        }
+        
+        @media (max-width: 320px) {
+            .auth {
+                width: 100%;
+            }
+
+            .auth__forms {
+                width: 300px;
+            }
+        }
+
+        @media (max-width: 390px) {
+            .auth {
+                width: 100%;
+            }
+
+            .auth__forms {
+                width: 250px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .auth {
+                width: 100%;
+            }
+
+            .auth__forms {
+                width: 250px;
+            }
         }
     }
 }

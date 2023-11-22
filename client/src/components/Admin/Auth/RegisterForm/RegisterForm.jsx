@@ -23,7 +23,8 @@ export function RegisterForm() {
       <Form.Input name="email" placeholder="Correo Electronico" onChange={formik.handleChange} value={formik.values.email} />
       <Form.Input name="password" type='password' placeholder="Contraseña" onChange={formik.handleChange} value={formik.values.password} />
       <Form.Input name="repeatPassword" type='password' placeholder="Repite la Contraseña" onChange={formik.handleChange} value={formik.values.repeatPassword} />
-      <Form.Checkbox name='conditionsAccepted' label="He leido y aceptado las politicas de privacidad." onChange={ (_, data) => formik.setFieldValue("conditionsAccepted", data.checked)} checked={ formik.values.conditionsAccepted } />
+      <Form.Checkbox name='conditionsAccepted' label="He leido y aceptado las politicas de privacidad." onChange={ (_, data) => formik.setFieldValue
+        ("conditionsAccepted", data.checked)} checked={ formik.values.conditionsAccepted } />
       <Form.Button type='submit' primary fluid loading={formik.isSubmitting }>Crear Cuenta</Form.Button>
 
       <p className='register-form__error'>{error}</p>

@@ -3,6 +3,6 @@ export function initialValues(){
         email: "",
         password: "",
         repeatPassword: "",
-        conditionsAccepted:false
+        conditionsAccepted:false,
     }
 }
