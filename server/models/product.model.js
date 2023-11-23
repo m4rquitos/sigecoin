@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const productModel = mongoose.Schema({
     codigoProduct: {
@@ -17,29 +17,38 @@ const productModel = mongoose.Schema({
         required: true,
         trim: true,
     },
-    tallas:{
-        type: [],
+    cantidad: {
+        type: Number, // Cambiado a tipo Number para representar la cantidad como un número
         required: true,
-        trim: true
+        default: 0, // Puedes ajustar el valor predeterminado según tus necesidades
+    },
+    proveedor: {
+        type: String,
+        trim: true,
+    },
+    tallas: {
+        type: [String], 
+        required: true,
+        trim: true,
     },
     categorias: {
-        type: [],
+        type: [String], 
         required: true,
-        trim: true
+        trim: true,
     },
     tipoCalzado: {
-        type: [],
+        type: [String], 
         required: true,
-        trim: true
+        trim: true,
     },
     descripcion: {
         type: String,
         trim: true,
-        required: true
+        required: true,
     },
     images: {
-        type: String
-    }
-})
+        type: String,
+    },
+});
 
-module.exports = mongoose.model('Producto', productModel)
+module.exports = mongoose.model('Producto', productModel);
