@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Modal from 'react-modal';
 
+import './customStyles.css'
+
 const customStyles = {
     content: {
         top: '50%',
@@ -91,8 +93,8 @@ const ProductUpdateModal = ({ isOpen, onRequestClose, fetchData, selectedProduct
 
     return (
         <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={customStyles} contentLabel="Actualizar Producto">
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
-                <h2>Actualizar Producto</h2>
+            <div className='Modal' style={{ display: 'flex', flexDirection: 'column' }}>
+                <h2>Registrar Nuevo Producto</h2>
 
                 <label>Código del Producto:</label>
                 <input type="text" value={codigoProduct} disabled />
@@ -124,7 +126,7 @@ const ProductUpdateModal = ({ isOpen, onRequestClose, fetchData, selectedProduct
                 <label>Imagen del Producto:</label>
                 <input type="file" accept="image/*" onChange={(e) => handleImageChange(e)} />
 
-                <button onClick={updateProduct}>Actualizar Producto</button>
+                <button className='btn_modal' onClick={updateProduct}>Actualizar Producto</button>
             </div>
         </Modal>
     );

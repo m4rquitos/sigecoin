@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Modal from 'react-modal';
 
+import './customStyles.css'
+
 const customStyles = {
     content: {
         top: '50%',
@@ -65,7 +67,7 @@ const ProductCreateModal = ({ isOpen, onRequestClose, fetchData }) => {
 
     return (
         <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={customStyles} contentLabel="Registrar Nuevo Producto">
-            <div style={{ display: 'flex', flexDirection: 'column' }}>
+            <div className='Modal' style={{ display: 'flex', flexDirection: 'column' }}>
                 <h2>Registrar Nuevo Producto</h2>
 
                 <label>Código del Producto:</label>
@@ -96,9 +98,9 @@ const ProductCreateModal = ({ isOpen, onRequestClose, fetchData }) => {
                 <input type="text" value={descripcion} onChange={(e) => setDescripcion(e.target.value)} />
 
                 <label>Imagen del Producto:</label>
-                <input type="file" accept="image/*" onChange={(e) => handleImageChange(e)} />
+                <input style={{ border: 'none' }} type="file" accept="image/*" onChange={(e) => handleImageChange(e)} />
 
-                <button onClick={registerProduct}>Registrar Producto</button>
+                <button className='btn_modal' onClick={registerProduct}>Registrar Producto</button>
             </div>
         </Modal>
     );
