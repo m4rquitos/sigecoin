@@ -47,8 +47,10 @@ const productModel = mongoose.Schema({
         required: true,
     },
     images: {
-        type: String,
+        type: String,//crear array para las imagenes y libreria para varios imagenes 
     },
 });
 
-module.exports = mongoose.model('Producto', productModel);
+const Product = mongoose.model('Product', productModel);
+
+module.exports = Product;
