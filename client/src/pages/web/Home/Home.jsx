@@ -1,5 +1,3 @@
-// Home.jsx
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { DataTable } from 'primereact/datatable';
@@ -10,6 +8,10 @@ import { MdDelete, MdEdit } from 'react-icons/md';
 
 import ProductCreateModal from './ProductCreateModal';
 import ProductUpdateModal from './ProductUpdateModal';
+import { CiCirclePlus } from "react-icons/ci";
+
+
+import './customStyles.css'
 
 function Home() {
     const [products, setProducts] = useState([]);
@@ -18,6 +20,7 @@ function Home() {
     const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
     const [isUpdateModalOpen, setIsUpdateModalOpen] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState(null);
+
 
     const fetchData = async () => {
         try {
@@ -81,12 +84,12 @@ function Home() {
     };
 
     const header = (
-        <div className="flex flex-wrap align-items-center justify-content-between gap-2">
-            <span className="text-xl text-900 font-bold">Inventario</span>
+        <div className="header">
+            <span style={{ marginLeft: '2em', fontWeight: 'bold', fontSize: '1.4em' }}>Inventario</span>
             <BiSearchAlt style={{ color: 'green', fontSize: '1.6em' }} />
             <span className="p-input-icon-left">
                 <InputText
-                    style={{ outline: 'none', borderBottom: '2px solid #4CAF50' }}
+                    style={{ outline: 'none', borderBottom: '2px solid rgb(154, 154, 154)', fontSize: '1.2em' }}
                     value={filterCode}
                     onChange={onCodeFilterChange}
                     placeholder="Buscar Por Codigo"
@@ -94,13 +97,13 @@ function Home() {
             </span>
             <span className="p-input-icon-left">
                 <InputText
-                    style={{ outline: 'none', borderBottom: '2px solid #4CAF50' }}
+                    style={{ outline: 'none', borderBottom: '2px solid rgb(154, 154, 154)', fontSize: '1.2em' }}
                     value={filterName}
                     onChange={onNameFilterChange}
                     placeholder="Buscar Por Nombre"
                 />
             </span>
-            <button onClick={openCreateModal}>Nuevo Producto</button>
+            
         </div>
     );
 
@@ -112,44 +115,49 @@ function Home() {
             <ProductUpdateModal isOpen={isUpdateModalOpen} onRequestClose={closeUpdateModal} selectedProduct={selectedProduct} />
 
             <section>
-                <div className="card">
-                    <DataTable value={visibleData} header={header} tableStyle={{ minWidth: '60rem' }} paginator rows={15}>
+                <div className="card" style={{padding: '0 2em' }}>
+                    <DataTable value={visibleData} header={header} tableStyle={{ minWidth: '60rem', textAlign: 'center', border: '1px solid rgb(154, 154, 154)' }} paginator rows={15} >
                         <Column
                             style={{ display: 'flex', justifyContent: 'center', margin: 'auto' }}
                             header="Image"
+                            className='column'
+                            headerClassName='headerTable'
                             body={(rowData) => (
                                 <img
                                     alt="Product"
                                     src={`http://localhost:3001/${rowData.images}`}
-                                    className="w-6rem shadow-2 border-round"
+                                    style={{ padding: '.7em 0' }}
                                     width={'100px'}
                                 />
                             )}
                         />
-                        <Column field="codigoProduct" header="CodigoProduct" />
-                        <Column field="nombreProduct" header="NombreProduct" />
-                        <Column field="precioUni" header="Precio Uni" />
-                        <Column field="cantidad" header="Cantidad" />
-                        <Column field="proveedor" header="Proveedor" />
-                        <Column field="tallas" header="Tallas" />
-                        <Column field="categorias" header="Categorias" />
-                        <Column field="tipoCalzado" header="Tipo Calzado" />
-                        <Column field="descripcion" header="Descripcion" />
+                        <Column className='column' field="codigoProduct" header="CodigoProduct" headerClassName='headerTable' />
+                        <Column className='column' field="nombreProduct" header="NombreProduct" headerClassName='headerTable' />
+                        <Column className='column' field="precioUni" header="Precio Uni" headerClassName='headerTable' />
+                        <Column className='column' field="cantidad" header="Cantidad" headerClassName='headerTable' />
+                        <Column className='column' field="proveedor" header="Provedor" headerClassName='headerTable' />
+                        <Column className='column' field="tallas" header="Tallas" headerClassName='headerTable' />
+                        <Column className='column' field="categorias" header="Categorias" headerClassName='headerTable' />
+                        <Column className='column' field="tipoCalzado" header="Tipo Calzado" headerClassName='headerTable' />
+                        <Column className='column' field="descripcion" style={{ width: '20%' }} header="Descripcion" headerClassName='headerTable' />
                         <Column
+                            className='column'
                             header='Actions'
+                            headerClassName='headerTable'
                             body={(rowData) => (
-                                <>
-                                    <button className="p-button p-component p-button-text p-button-plain" onClick={() => openUpdateModal(rowData)}>
-                                        <MdEdit style={{ fontSize: '1.5em' }} />
+                                <div style={{ display: 'flex', gap: '.5em', justifyContent: 'center' }}>
+                                    <button className="btnActions" onClick={() => openUpdateModal(rowData)}>
+                                        <MdEdit style={{ fontSize: '3em' }} />
                                     </button>
-                                    <button className="p-button p-component p-button-text p-button-plain" onClick={() => deleteProduct(rowData)}>
-                                        <MdDelete style={{ fontSize: '1.5em' }} />
+                                    <button className="btnActions" onClick={() => deleteProduct(rowData)}>
+                                        <MdDelete style={{ fontSize: '3em' }} />
                                     </button>
-                                </>
+                                </div>
                             )}
                         />
                     </DataTable>
                 </div>
+                <button style={{ display: 'flex', alignItems: 'center', gap: '.3em' }} className='btn_create' onClick={openCreateModal}><CiCirclePlus style={{ fontSize: '2em' }} />Producto</button>
             </section>
         </>
     );
