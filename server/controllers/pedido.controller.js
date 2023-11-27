@@ -2,12 +2,12 @@ const Pedido = require('../models/Pedido');
 
 const PedidoController = {
   // Crear un nuevo pedido
-  crearPedido: async (req, res) => {
-    const { usuario, products } = req.body;
+  createPedido: async (req, res) => {
+    const { user, products } = req.body;
 
     try {
       const nuevoPedido = new Pedido({
-        usuario,
+        user,
         products
         // Otros campos relacionados con el pedido
       });
@@ -20,9 +20,9 @@ const PedidoController = {
   },
 
   // Obtener todos los pedidos
-  obtenerTodosPedidos: async (req, res) => {
+  getPedidos: async (req, res) => {
     try {
-      const pedidos = await Pedido.find().populate('usuario').populate('products.product');
+      const pedidos = await Pedido.find().populate('user').populate('products.product');
       res.json({ success: true, pedidos });
     } catch (error) {
       res.status(500).json({ success: false, message: error.message });
@@ -30,7 +30,7 @@ const PedidoController = {
   },
 
   // Actualizar detalles de un pedido por ID
-  actualizarPedido: async (req, res) => {
+  updatePedido: async (req, res) => {
     const pedidoId = req.params.id;
     const { products, estado } = req.body;
 
@@ -39,7 +39,7 @@ const PedidoController = {
         pedidoId,
         { products, estado },
         { new: true }
-      ).populate('usuario').populate('products.product');
+      ).populate('user').populate('products.product');
 
       if (!pedidoActualizado) {
         return res.status(404).json({ success: false, message: 'Pedido no encontrado' });
@@ -52,7 +52,7 @@ const PedidoController = {
   },
 
   // Eliminar un pedido por ID
-  eliminarPedido: async (req, res) => {
+  deletePedido: async (req, res) => {
     const pedidoId = req.params.id;
 
     try {

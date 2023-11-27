@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form } from "semantic-ui-react"
 import { useFormik } from "formik"
-import { initialValues, validationSchema } from './LoginForm.form'
+import { initialValues, validationSchem } from './LoginForm.form'
 
 export function LoginForm() {
     return (
