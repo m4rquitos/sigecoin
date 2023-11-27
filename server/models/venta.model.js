@@ -55,9 +55,14 @@ const ventasSchema = new mongoose.Schema({
     default: true
   },
   vendedor: {
-    type: String,
-    required: true
-  }
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User', // Ajusta el nombre del modelo de usuario si es diferente
+    //required: true
+  },
+  fechaVenta: {
+    type: Date,
+    default: Date.now,
+}
 });
 
 const ventas = mongoose.model('ventas', ventasSchema);

@@ -1,5 +1,6 @@
-const Sales = require('../models/Sales');
-const Product = require('../models/Product');
+const Venta = require('../models/venta.model');
+const Producto = require('../models/product.model');
+const User = require('../models/user.model');
 
 async function createVenta(req, res) {
     const {
@@ -11,12 +12,13 @@ async function createVenta(req, res) {
         total,
         abono,
         saldo,
-        estado,
-        vendedor
+        estado
     } = req.body;
 
     try {
-        const nuevaVenta = new Sales({
+        const vendedorId = req.user._id; // Obtener el ID del vendedor desde req.user
+
+        const nuevaVenta = new Venta({
             codigoVenta,
             cliente,
             productosVendidos,
@@ -26,7 +28,7 @@ async function createVenta(req, res) {
             abono,
             saldo,
             estado,
-            vendedor
+            vendedor: vendedorId // Asignar el ID del vendedor a la venta
         });
 
         const ventaGuardada = await nuevaVenta.save();
@@ -34,7 +36,7 @@ async function createVenta(req, res) {
         for (const producto of productosVendidos) {
             const { nombre, marca, cantidad } = producto;
 
-            const productoEncontrado = await Product.findOne({ nombre, marca });
+            const productoEncontrado = await Producto.findOne({ nombre, marca });
 
             if (productoEncontrado) {
                 productoEncontrado.cantidadDisponible -= cantidad;
@@ -43,6 +45,7 @@ async function createVenta(req, res) {
         }
 
         res.status(201).json({ success: true, venta: ventaGuardada });
+        console.log(req.user._id)
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
     }
@@ -53,7 +56,7 @@ async function updateVenta(req, res) {
     const ventaData = req.body;
 
     try {
-        const ventaActualizada = await Sales.findByIdAndUpdate(id, ventaData);
+        const ventaActualizada = await Venta.findByIdAndUpdate(id, ventaData);
         res.status(200).json({ success: true, message: 'Venta actualizada correctamente', venta: ventaActualizada });
     } catch (error) {
         res.status(400).json({ success: false, message: 'Error al actualizar la venta', error: error.message });
@@ -66,9 +69,9 @@ async function getVentas(req, res) {
         let ventas = null;
 
         if (estado === undefined) {
-            ventas = await Sales.find().sort({ codigoVenta: 'asc' });
+            ventas = await Venta.find().sort({ codigoVenta: 'asc' });
         } else {
-            ventas = await Sales.find({ estado }).sort({ codigoVenta: 'asc' });
+            ventas = await Venta.find({ estado }).sort({ codigoVenta: 'asc' });
         }
 
         res.status(200).json({ success: true, ventas });
@@ -81,7 +84,7 @@ async function deleteVenta(req, res) {
     const { id } = req.params;
 
     try {
-        await Sales.findByIdAndDelete(id);
+        await Venta.findByIdAndDelete(id);
         res.status(200).json({ success: true, message: 'Venta eliminada exitosamente' });
     } catch (error) {
         res.status(400).json({ success: false, message: 'Error al eliminar la venta', error: error.message });
