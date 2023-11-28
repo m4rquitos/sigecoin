@@ -2,19 +2,16 @@
 import React, { useEffect } from 'react';
 import {BrowserRouter} from "react-router-dom"
 import {WebRouter, AdminRouter} from "./router"
-import { setAppElement } from 'react-modal';
+import { AuthProvider } from './contexts';
 
 export default function App() {
 
-  useEffect(() => {
-    // Establecer el elemento raíz de la aplicación para react-modal
-    setAppElement('#root');
-  }, []);
-
   return (
-    <BrowserRouter>
-    <WebRouter />
-    <AdminRouter />
-    </BrowserRouter>
-  )
+    <AuthProvider>
+      <BrowserRouter>
+        <WebRouter />
+        <AdminRouter />
+      </BrowserRouter>
+    </AuthProvider>
+  );
 }

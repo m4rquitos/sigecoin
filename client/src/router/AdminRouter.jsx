@@ -5,11 +5,14 @@ import { map } from "lodash"
 import { AdminLayout } from '../layouts'
 import Auth from "../pages/admin/Auth/index"
 import { Blog, Courses, Users, Menu, NewsLetter } from '../pages/admin'
+import { useAuth } from "../hooks"
 
 const user = null
 
 
 export function AdminRouter() {
+
+  const { user} = useAuth
 
   const loadLayout = (Layout, Page) => {
     return (
