@@ -2,6 +2,15 @@ const Venta = require('../models/venta.model');
 const Producto = require('../models/product.model');
 const User = require('../models/user.model');
 
+async function getUserInfo(userId) {
+    try {
+        const user = await User.getUserById(userId);
+        return user; // Devuelve los detalles del usuario
+    } catch (error) {
+        throw new Error('Error al obtener la información del usuario');
+    }
+}
+
 async function createVenta(req, res) {
     const {
         codigoVenta,
@@ -16,6 +25,8 @@ async function createVenta(req, res) {
     } = req.body;
 
     try {
+        console.log(req.user); // Aquí podrás acceder a req.user._id
+
         const vendedorId = req.user._id; // Obtener el ID del vendedor desde req.user
 
         const nuevaVenta = new Venta({
@@ -45,12 +56,11 @@ async function createVenta(req, res) {
         }
 
         res.status(201).json({ success: true, venta: ventaGuardada });
-        console.log(req.user._id)
+        console.log(req.user._id); // También aquí podrás acceder a req.user._id después de la creación de la venta
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
     }
 }
-
 async function updateVenta(req, res) {
     const { id } = req.params;
     const ventaData = req.body;
