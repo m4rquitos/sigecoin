@@ -8,7 +8,7 @@ export function initialValues(){
     }
 }
 
-export function validationSchema() {
+export function validationSchem() {
     return Yup.object({
         email: Yup.string().email("El email no es valido").required("Campo obligatorio"),
         password: Yup.string().required("Campo obligatorio"),

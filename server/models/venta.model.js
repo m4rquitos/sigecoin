@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-//const { string } = require('zod');
 
 const ventasSchema = new mongoose.Schema({
   codigoVenta: {
@@ -57,9 +56,9 @@ const ventasSchema = new mongoose.Schema({
   },
   vendedor: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User'
+    ref: 'User', // Ajusta el nombre del modelo de usuario si es diferente
+    //required: true
   },
-  vendedorName: String,
   fechaVenta: {
     type: Date,
     default: Date.now,

@@ -7,7 +7,6 @@ const pedidoSchema = new mongoose.Schema({
     ref: 'User',
     required: true
   },
-  usuarioName: String,
   products: [{
     product: {
       type: mongoose.Schema.Types.ObjectId,
@@ -35,7 +34,7 @@ fecha: {
   estado: {
     type: boolean,
   },
-  
+  // Otros campos relacionados con el pedido
 });
 
 const Pedido = mongoose.model('Pedido', pedidoSchema);

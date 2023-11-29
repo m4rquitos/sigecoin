@@ -2,21 +2,6 @@ const Venta = require('../models/venta.model');
 const Producto = require('../models/product.model');
 const User = require('../models/user.model');
 
-async function getUserFullName(userId) {
-    try {
-        const user = await User.findById(userId);
-        if (user) {
-            const fullName = `${user.firstname} ${user.lastname}`;
-            return fullName;
-        } else {
-            throw new Error('Usuario no encontrado');
-        }
-    } catch (error) {
-        throw new Error('Error al obtener el nombre y apellido del usuario');
-    }
-}
-
-
 async function createVenta(req, res) {
     const {
         codigoVenta,
@@ -31,8 +16,8 @@ async function createVenta(req, res) {
     } = req.body;
 
     try {
-        const vendedorId = req.user.user_id; // Obtener el ID del vendedor desde req.user
-       const vendedorFullName = await getUserFullName(req.user.user_id);
+        const vendedorId = req.user._id; // Obtener el ID del vendedor desde req.user
+
         const nuevaVenta = new Venta({
             codigoVenta,
             cliente,
@@ -43,8 +28,7 @@ async function createVenta(req, res) {
             abono,
             saldo,
             estado,
-            vendedor: vendedorId, // Asignar el ID del vendedor a la venta
-            vendedorName:vendedorFullName
+            vendedor: vendedorId // Asignar el ID del vendedor a la venta
         });
 
         const ventaGuardada = await nuevaVenta.save();
@@ -61,10 +45,12 @@ async function createVenta(req, res) {
         }
 
         res.status(201).json({ success: true, venta: ventaGuardada });
+        console.log(req.user._id)
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
     }
 }
+
 async function updateVenta(req, res) {
     const { id } = req.params;
     const ventaData = req.body;
