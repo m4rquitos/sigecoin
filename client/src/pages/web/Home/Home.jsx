@@ -4,7 +4,6 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { InputText } from 'primereact/inputtext';
 
-
 import { BiSearchAlt } from 'react-icons/bi';
 import { MdDelete, MdEdit } from 'react-icons/md';
 import { CiCirclePlus, CiCircleMinus } from 'react-icons/ci';
@@ -193,7 +192,6 @@ const Home = () => {
 
     const getTotalSale = () => cart.reduce((total, item) => total + item.cantidad * item.precioUni, 0);
 
-
     return (
         <>
             <ProductCreateModal isOpen={isCreateModalOpen} onRequestClose={closeCreateModal} />
@@ -226,7 +224,7 @@ const Home = () => {
                         <Column className='column' field="cantidad" header="Cantidad" headerClassName='headerTable' />
                         <Column className='column' field="proveedor" header="Provedor" headerClassName='headerTable' />
                         <Column className='column' field="tallas" header="Tallas" headerClassName='headerTable' />
-                        <Column className='column' field="categorias" header="Categorias" headerClassName='headerTable' />
+                        <Column className='column' field="categorias" header="Categorias" headerClassName='headerTable' style={{ textTransform: 'capitalize' }} />
                         <Column className='column' field="tipoCalzado" header="Tipo Calzado" headerClassName='headerTable' />
                         <Column className='column' field="descripcion" style={{ width: '20%' }} header="Descripcion" headerClassName='headerTable' />
                         <Column

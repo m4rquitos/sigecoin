@@ -114,14 +114,21 @@ const ProductUpdateModal = ({ isOpen, onRequestClose, fetchData, selectedProduct
                 <label>Tallas (separadas por comas):</label>
                 <input type="text" value={tallas} onChange={onTallasChange} />
 
-                <label>Categorías (separadas por comas):</label>
-                <input type="text" value={categorias} onChange={onCategoriasChange} />
+                <label>Categorías:</label>
+                <select onChange={onCategoriasChange}>
+                    <option value="hombre">Hombre</option>
+                    <option value="mujer">Mujer</option>
+                    <option value="deportivos">Deportivos</option>
+                    <option value="infantil">Infantil</option>
+                </select>
+
+                <input value={categorias} style={{ visibility: 'hidden', display: 'none' }} />
 
                 <label>Tipo de Calzado (separadas por comas):</label>
-                <input type="text" value={tipoCalzado} onChange={onTipoCalzadoChange} />
+                <input type="text" required value={tipoCalzado} onChange={onTipoCalzadoChange} />
 
                 <label>Descripción:</label>
-                <input type="text" value={descripcion} onChange={(e) => setDescripcion(e.target.value)} />
+                <textarea type="text" required value={descripcion} onChange={(e) => setDescripcion(e.target.value)} style={{ height: '60px' }} />
 
                 <label>Imagen del Producto:</label>
                 <input type="file" accept="image/*" onChange={(e) => handleImageChange(e)} />

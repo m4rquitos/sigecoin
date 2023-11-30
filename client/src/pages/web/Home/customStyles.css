@@ -152,7 +152,7 @@ tr:hover{
 @keyframes openAnimation {
     0%{
         bottom: 0;
-        left: -50%;
+        left: -100%;
     }
     100%{
         bottom: 0;
@@ -163,7 +163,7 @@ tr:hover{
 .card_hidden{
     position: fixed;
     bottom: 0;
-    left: -50%;
+    left: -100%;
     animation: closeAnimation ease-in-out 1s;
 }
 
@@ -174,18 +174,19 @@ tr:hover{
     }
     100%{
         bottom: 0;
-        left: -50%;
+        left: -100%;
     }
 }
 
 .btnOpenCart{
-    position: absolute;
+    position: fixed;
     left: .8em;
     bottom: .8em;
     cursor: pointer;
     color: hsl(166, 88%, 48%);
     border-radius: 50%;
     box-shadow: 0 0 3px grey;
+    background-color: white;
     padding: .1em .1em;
     font-size: 2.3em;
     transition: all .7s;

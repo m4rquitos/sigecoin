@@ -65,37 +65,46 @@ const ProductCreateModal = ({ isOpen, onRequestClose, fetchData }) => {
         }
     };
 
+    console.log(categorias)
+
     return (
         <Modal isOpen={isOpen} onRequestClose={onRequestClose} style={customStyles} contentLabel="Registrar Nuevo Producto">
             <div className='Modal' style={{ display: 'flex', flexDirection: 'column' }}>
                 <h2>Registrar Nuevo Producto</h2>
 
                 <label>Código del Producto:</label>
-                <input type="text" value={codigoProduct} onChange={(e) => setCodigoProduct(e.target.value)} />
+                <input type="text" required value={codigoProduct} onChange={(e) => setCodigoProduct(e.target.value)} />
 
                 <label>Nombre del Producto:</label>
-                <input type="text" value={nombreProduct} onChange={(e) => setNombreProduct(e.target.value)} />
+                <input type="text" required value={nombreProduct} onChange={(e) => setNombreProduct(e.target.value)} />
 
                 <label>Precio Unitario:</label>
-                <input type="text" value={precioUni} onChange={(e) => setPrecioUni(e.target.value)} />
+                <input type="text" required value={precioUni} onChange={(e) => setPrecioUni(e.target.value)} />
 
                 <label>Cantidad:</label>
-                <input type="number" value={cantidad} onChange={(e) => setCantidad(e.target.value)} />
+                <input type="numbe requiredr" value={cantidad} onChange={(e) => setCantidad(e.target.value)} />
 
                 <label>Proveedor:</label>
-                <input type="text" value={proveedor} onChange={(e) => setProveedor(e.target.value)} />
+                <input type="text" required value={proveedor} onChange={(e) => setProveedor(e.target.value)} />
 
                 <label>Tallas (separadas por comas):</label>
-                <input type="text" value={tallas} onChange={onTallasChange} />
+                <input type="text" required value={tallas} onChange={onTallasChange} />
 
-                <label>Categorías (separadas por comas):</label>
-                <input type="text" value={categorias} onChange={onCategoriasChange} />
+                <label>Categorías:</label>
+                <select onChange={onCategoriasChange}>
+                    <option value="hombre">Hombre</option>
+                    <option value="mujer">Mujer</option>
+                    <option value="deportivos">Deportivos</option>
+                    <option value="infantil">Infantil</option>
+                </select>
+
+                <input value={categorias} style={{ visibility: 'hidden', display: 'none' }} />
 
                 <label>Tipo de Calzado (separadas por comas):</label>
-                <input type="text" value={tipoCalzado} onChange={onTipoCalzadoChange} />
+                <input type="text" required value={tipoCalzado} onChange={onTipoCalzadoChange} />
 
                 <label>Descripción:</label>
-                <input type="text" value={descripcion} onChange={(e) => setDescripcion(e.target.value)} />
+                <textarea type="text" required value={descripcion} onChange={(e) => setDescripcion(e.target.value)} style={{ height: '60px' }} />
 
                 <label>Imagen del Producto:</label>
                 <input style={{ border: 'none' }} type="file" accept="image/*" onChange={(e) => handleImageChange(e)} />
