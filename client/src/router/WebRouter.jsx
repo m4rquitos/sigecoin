@@ -4,6 +4,10 @@ import {Routes, Route} from 'react-router-dom'
 import Home from "../pages/web/Home/index"
 import { ClientLayout } from '../layouts/ClientLayout/ClientLayout'
 import { Blog, Contact, Courses, Post} from "../pages/web"
+import Register from '../pages/web/Register/Register'
+import Login from '../pages/web/Login/Login'
+
+
 
 export function WebRouter() {
 
@@ -16,12 +20,16 @@ export function WebRouter() {
   }
   return (
     <Routes>
-      <Route path="/" element={loadLayout(ClientLayout, Home)} />
+      <Route path="/home" element={loadLayout(ClientLayout, Home)} />
       <Route path="/blog" element={loadLayout(ClientLayout, Blog)} />
       <Route path="/contact" element={loadLayout(ClientLayout, Contact)} />
       <Route path="/courses" element={loadLayout(ClientLayout, Courses)} />
       <Route path="/blog/:path" element={ loadLayout(ClientLayout, Post)} />
+      <Route path="/register" element={<Register/>} />
+      <Route path="/login" element={<Login/>} />
+
     </Routes>
   )
 }
+
 

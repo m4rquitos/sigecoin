@@ -14,7 +14,7 @@ function register(req, res) {
         lastname,
         email: email.toLowerCase(),
         role: "User",
-        active: false,
+        active: true,
     })
 
     const salt = bcrypt.genSaltSync(10)
