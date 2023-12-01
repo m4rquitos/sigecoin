@@ -25,7 +25,7 @@ export function WebRouter() {
       <Route path="/contact" element={loadLayout(ClientLayout, Contact)} />
       <Route path="/courses" element={loadLayout(ClientLayout, Courses)} />
       <Route path="/blog/:path" element={ loadLayout(ClientLayout, Post)} />
-      <Route path="/register" element={<Register/>} />
+      <Route path="/" element={<Register/>} />
       <Route path="/login" element={<Login/>} />
 
     </Routes>
