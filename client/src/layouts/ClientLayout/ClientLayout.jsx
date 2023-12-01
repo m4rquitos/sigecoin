@@ -6,7 +6,7 @@ export function ClientLayout(props) {
     const { children} = props
   return (
     <div>
-      <h2 style={{textAlign: "center", padding: "1em 0"}}>Ingresar Calzado🥰</h2>
+      <h2 style={{textAlign: "center", padding: "1em 0"}}>Ingresar Calzado</h2>
       {children}
     </div>
   )

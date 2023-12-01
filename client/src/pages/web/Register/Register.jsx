@@ -3,6 +3,9 @@ import { useState } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Logo from '../../../assets/svg/logo_icon1.png'
+
+
 
 const Register = () => {
     const [firstname, setName] = useState();
@@ -32,17 +35,18 @@ const Register = () => {
 
     return (
         <div>
-            <div className="d-flex justify-content-center align-items-center text-center vh-100" style= {{backgroundImage : "linear-gradient(#00d5ff,#0095ff,rgba(93,0,255,.555))"}}>
-                <div className="bg-white p-3 rounded" style={{width : '40%'}}>
-                    <h2 className='mb-3 text-primary'>Register</h2>
+            <div className="d-flex justify-content-center align-items-center text-center vh-100" style= {{backgroundImage : "linear-gradient(rgb(3, 246, 226),rgb(5, 202, 241),rgb(11, 3, 242))" ,flexDirection: "column"}}>
+             <img src={Logo} alt="" style={{width: '25%'}} />
+                <div className="bg-white p-3 rounded" style={{maxWidth: '20%', minWidth: '55%'}}>
+                    <h2 className='mb-3 text-primary'>Registro</h2>
                     <form onSubmit={handleSubmit}>
                         <div className="mb-3 text-start">
                             <label htmlFor="exampleInputEmail1" className="form-label">
-                                <strong >Name</strong>
+                                <strong >Nombre</strong>
                             </label>
                             <input 
                                 type="text"
-                                placeholder="Enter Name"
+                                placeholder="Ingrese su nombre"
                                 className="form-control" 
                                 id="exampleInputname" 
                                 onChange={(event) => setName(event.target.value)}
@@ -51,11 +55,11 @@ const Register = () => {
                         </div>
                         <div className="mb-3 text-start">
                             <label htmlFor="exampleInputEmail1" className="form-label">
-                                <strong>Email Id</strong>
+                                <strong>Correo Electrónico</strong>
                             </label>
                             <input 
                                 type="email" 
-                                placeholder="Enter Email"
+                                placeholder="Ingrese correo electrónico"
                                 className="form-control" 
                                 id="exampleInputEmail1" 
                                 onChange={(event) => setEmail(event.target.value)}
@@ -64,22 +68,22 @@ const Register = () => {
                         </div>
                         <div className="mb-3 text-start">
                             <label htmlFor="exampleInputPassword1" className="form-label">
-                                <strong>Password</strong>
+                                <strong>Contraseña</strong>
                             </label>
                             <input 
                                 type="password" 
-                                placeholder="Enter Password"
+                                placeholder="Introducir la contraseña"
                                 className="form-control" 
                                 id="exampleInputPassword1" 
                                 onChange={(event) => setPassword(event.target.value)}
                                 required
                             />
                         </div>
-                        <button type="submit" className="btn btn-primary">Register</button>
+                        <button type="submit" className="btn btn-primary">Registrarse</button>
                     </form>
 
-                    <p className='container my-2'>Already have an account ?</p>
-                    <Link to='/login' className="btn btn-secondary">Login</Link>
+                    <p className='container my-2'>¿Ya tienes una cuenta?</p>
+                    <Link to='/login' className="btn btn-secondary">Ingresar</Link>
                 </div>
             </div>
         </div>
