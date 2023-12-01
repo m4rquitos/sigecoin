@@ -21,6 +21,7 @@ export function AdminRouter() {
   }
   return (
     <Routes>
+    <Route path='/admin/newsletter' element={ loadLayout(AdminLayout, NewsLetter)} />
       {!user ? ( 
       <Route path='/admin/*' element={ < Auth /> } />
       ) : (
@@ -31,7 +32,7 @@ export function AdminRouter() {
         <Route path='/admin/users' element={ loadLayout(AdminLayout, Users)} />
         <Route path='/admin/courses' element={ loadLayout(AdminLayout, Courses)} />
         <Route path='/admin/menu' element={ loadLayout(AdminLayout, Menu)} />
-        <Route path='/admin/newsletter' element={ loadLayout(AdminLayout, NewsLetter)} />
+        
         </>
       )
     }</Routes>
