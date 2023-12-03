@@ -193,6 +193,19 @@ tr:hover{
     z-index: 50;
 }
 
+.cartCount{
+    position: fixed;
+    left: 3em;
+    bottom: 3em;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: tomato;
+    z-index: 51;
+    background-color: white;
+    padding: .0em .4em;
+    border-radius: 50%;
+}
+
 .btnOpenCart:hover{
     background-color: hsl(166, 88%, 48%);
     color: rgb(253, 249, 249);
@@ -254,4 +267,18 @@ tr:hover{
     align-items: center;
     justify-content: center;
     gap: .3em;
+}
+
+
+/* TODO Styles Ventas */
+
+.containerVentas{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+
+}
+.venta{
+    width: fit-content;
+    padding: 1em 1em;
 }

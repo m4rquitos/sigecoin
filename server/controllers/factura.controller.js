@@ -71,6 +71,16 @@ const generarFactura = async (req, res) => {
             return total + item.cantidad * producto.precioUni;
         }, 0);
 
+        // Verifica si hay suficiente stock para cada producto en el carrito
+        const stockSuficiente = carrito.every(item => {
+            const producto = productosEnCarrito.find(p => p.codigoProduct === item.codigoProduct);
+            return producto && item.cantidad <= producto.cantidad;
+        });
+
+        if (!stockSuficiente) {
+            return res.status(400).json({ msg: 'No hay suficiente stock para completar la compra.' });
+        }
+
         // Crea la factura en la base de datos
         const nuevaFactura = new Factura({
             nombre,
@@ -80,7 +90,20 @@ const generarFactura = async (req, res) => {
             // Otros campos de la factura según tu modelo
         });
 
+        // Guarda la factura en la base de datos
         const facturaGuardada = await nuevaFactura.save();
+
+        // Actualiza el stock de productos
+        for (const item of carrito) {
+            const producto = productosEnCarrito.find(p => p.codigoProduct === item.codigoProduct);
+            if (producto) {
+                // Reduce la cantidad en stock según la cantidad vendida en la factura
+                await Product.findOneAndUpdate(
+                    { codigoProduct: item.codigoProduct },
+                    { $inc: { cantidad: -item.cantidad } } // Reducción de stock
+                );
+            }
+        }
 
         // Puedes realizar otras acciones aquí, como limpiar el carrito, etc.
 
@@ -90,6 +113,8 @@ const generarFactura = async (req, res) => {
         res.status(500).json({ msg: 'Error al generar la factura' });
     }
 };
+
+
 
 module.exports = {
     createFactura,

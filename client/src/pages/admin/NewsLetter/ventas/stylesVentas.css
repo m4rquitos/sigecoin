@@ -1,0 +1,28 @@
+.ventaInfo{
+    margin-top: 2em;
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+}
+.containerVentas{
+    margin-top: 1.5em;
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+}
+.venta{
+    background-color: rgb(226, 222, 217);
+    box-shadow: 0 0 5px black;
+    border-radius: 10px;
+    font-size: 1.1em;
+    padding: 2em 1.5em;
+}
+.venta b{
+    color: tomato;
+}
+
+.productoVenta{
+    border-bottom: 2px solid grey;
+    list-style: none;
+    padding: 1em 0;
+}
