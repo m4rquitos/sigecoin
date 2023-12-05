@@ -1,34 +1,30 @@
-const jwt = require("../utils/jwt")
+const jwt = require("../utils/jwt");
 
 function asureAuth(req, res, next) {
-    if(!req.headers.authorization){
-        return res.status(403).send({msg: "La peticion no tiene la cabecera de autenticacion"})
+    if (!req.headers.authorization) {
+        return res.status(403).send({ msg: "La petición no tiene la cabecera de autenticación" });
     }
 
-    const token = req.headers.authorization.replace("Bearer ", "")
+    const token = req.headers.authorization.replace("Bearer ", "");
 
     try {
-        const payload = jwt.decoded(token)
+        const payload = jwt.decoded(token); // Corrección aquí
 
-        const { exp } = payload
-        const currentData = new Date().getTime()
+        const { exp } = payload;
+        const currentData = new Date().getTime();
 
-       // console.log(exp);
-        //console.log(currentData)
-        
         if (exp <= currentData) {
-            return res.status(400).send({msg: "El token ha expirado"})
+            return res.status(400).send({ msg: "El token ha expirado" });
         }
 
-        req.user = payload
-        next()
+        req.user = payload;
+        next();
 
     } catch (error) {
-        return res.status(400).send({msg: "Token invalido"})
+        return res.status(400).send({ msg: "Token inválido" });
     }
-
 }
 
 module.exports = {
     asureAuth
-}
+};
