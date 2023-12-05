@@ -1478,6 +1478,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dotenv@npm:^16.3.1":
+  version: 16.3.1
+  resolution: "dotenv@npm:16.3.1"
+  checksum: b95ff1bbe624ead85a3cd70dbd827e8e06d5f05f716f2d0cbc476532d54c7c9469c3bc4dd93ea519f6ad711cb522c00ac9a62b6eb340d5affae8008facc3fbd7
+  languageName: node
+  linkType: hard
+
 "eastasianwidth@npm:^0.2.0":
   version: 0.2.0
   resolution: "eastasianwidth@npm:0.2.0"
@@ -1920,6 +1927,13 @@ __metadata:
   version: 3.1.1
   resolution: "exponential-backoff@npm:3.1.1"
   checksum: 160456d2d647e6019640bd07111634d8c353038d9fa40176afb7cd49b0548bdae83b56d05e907c2cce2300b81cae35d800ef92fefb9d0208e190fa3b7d6bb579
+  languageName: node
+  linkType: hard
+
+"express-async-handler@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "express-async-handler@npm:1.2.0"
+  checksum: 0c664965b86d8f6369883080bc7709266215c3c5d7e62ce7b00859e68293720bac409157d4f4ac8859b5fe59608f75b5038ce2b2f683fae356ff9f60874a1341
   languageName: node
   linkType: hard
 
@@ -3432,6 +3446,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nodemailer@npm:^6.9.7":
+  version: 6.9.7
+  resolution: "nodemailer@npm:6.9.7"
+  checksum: 5ea7f781782361890d4492dc2412496e89fb04c498814e6c4fe7b168a27d7491a00f725cf90c26768907506e8afb76e8cfe6f6300def9940bc7f7e323405eaa6
+  languageName: node
+  linkType: hard
+
 "nodemon@npm:2.0.20":
   version: 2.0.20
   resolution: "nodemon@npm:2.0.20"
@@ -4716,11 +4737,13 @@ __metadata:
     connect-multiparty: "npm:^2.2.0"
     cookie-parser: "npm:1.4.6"
     cors: "npm:^2.8.5"
+    dotenv: "npm:^16.3.1"
     eslint: "npm:^8.44.0"
     eslint-plugin-react: "npm:^7.32.2"
     eslint-plugin-react-hooks: "npm:^4.6.0"
     eslint-plugin-react-refresh: "npm:^0.4.1"
     express: "npm:4.18.1"
+    express-async-handler: "npm:^1.2.0"
     express-fileupload: "npm:1.4.1"
     jsonwebtoken: "npm:^8.5.1"
     mongoose: "npm:6.6.1"
@@ -4728,6 +4751,7 @@ __metadata:
     mongose: "npm:^0.0.2-security"
     morgan: "npm:^1.10.0"
     multer: "npm:^1.4.5-lts.1"
+    nodemailer: "npm:^6.9.7"
     nodemon: "npm:2.0.20"
     uuid: "npm:^9.0.1"
     vite: "npm:^4.4.0"
