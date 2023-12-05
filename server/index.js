@@ -1,5 +1,6 @@
 const mongoose = require("mongoose")
 const app = require("./app.js")
+require('dotenv').config();
 
 const {
     DB_USER,
