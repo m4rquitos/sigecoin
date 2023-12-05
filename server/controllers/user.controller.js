@@ -123,15 +123,16 @@ const forgotPassword = asyncHandler(async (req, res) => {
   }).save();
 
   // Construct URL
-  const resetUrl = `${process.env.FRONTEND_URL}/resetpassword/${resetToken}`;
+  const resetUrl = `${process.env.FRONTEND_URL}/reset/${resetToken}`;
 
 
   // Email body
   const message = `
   <div style="background-color: #F5F5F5; padding: 20px; border-radius: 10px; text-align: center; font-family: 'Helvetica Neue', Arial, sans-serif; color: #333;">
-    <h2 style="color: #007BFF;">Hola, ${user.firstname}</h2>
-    <p style="font-size: 16px; color: #666;">Por favor utiliza este enlace para restablecer tu contraseña.</p>
-    <p style="font-size: 16px; color: #666;">Recuerda que este enlace solo está disponible por 10 minutos.</p>
+    <h2 style="color: #007BFF;">Estimado, ${user.firstname}</h2>
+    <p style="font-size: 16px; color: #666;">Recibimos una solicitud para restablecer la contraseña de tu cuenta. Para completar el proceso, haz clic en el siguiente enlace:</p>
+    <p style="font-size: 16px; color: #666;">Si no solicitaste este cambio, por favor ignora este mensaje. Tu contraseña actual seguirá siendo válida.<br>
+    Por razones de seguridad, este enlace expirará en 10 minutos. Si no completas el restablecimiento dentro de este tiempo, deberás iniciar el proceso nuevamente.</p>
     <a href="${resetUrl}" style="display: block; margin: 20px 0; padding: 10px 20px; background-color: #007BFF; color: #fff; text-decoration: none; border-radius: 5px;">${resetUrl}</a>
     <p style="font-size: 16px; color: #666;">Que tengas un lindo día...</p>
     <h3 style="color: #333;">SIGECOIN</h3>

@@ -6,6 +6,8 @@ import { ClientLayout } from '../layouts/ClientLayout/ClientLayout'
 import { Blog, Contact, Courses, Post} from "../pages/web"
 import Register from '../pages/web/Register/Register'
 import Login from '../pages/web/Login/Login'
+import Forgot from '../pages/web/Forgotpassword/Forgot'
+import Resetpassword from '../pages/web/Forgotpassword/Resetpassword'
 
 
 
@@ -27,6 +29,8 @@ export function WebRouter() {
       <Route path="/blog/:path" element={ loadLayout(ClientLayout, Post)} />
       <Route path="/" element={<Register/>} />
       <Route path="/login" element={<Login/>} />
+      <Route path="/forgot" element={<Forgot/>} />
+      <Route path="/reset/:resetToken" element={<Resetpassword/>} />
 
     </Routes>
   )
