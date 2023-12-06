@@ -1,4 +1,57 @@
-.products-container{
+.products-container {
     display: flex;
-    gap: 2em;
-}
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 4rem;
+    margin-right: 4rem;
+  }
+  
+  .cardPedido {
+    width: 300px; /* Para tener 3 tarjetas en una fila con espacio entre ellas */
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+  }
+  
+  .card-image img {
+    width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+    margin-left: 3rem;
+  }
+  
+  .card-details {
+    flex-grow: 1;
+  }
+  
+  .add-to-cart-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .add-to-cart-button:hover {
+    background-color: #0056b3;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .card {
+      width: calc(50% - 20px); /* Para tener 2 tarjetas en una fila en pantallas más pequeñas */
+    }
+  }
+  
+  .cant {
+    margin: 0.4rem;
+  }
+
+  .cardUl{
+    margin: 1rem;
+    margin-top: 3rem;
+    
+  }
