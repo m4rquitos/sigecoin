@@ -1,8 +1,8 @@
 import React from 'react'
 import { StickyNav } from 'react-js-stickynav'
-import cardlogo from '../../../assets/jpg/cardlogo.jpg'
 import logo from '../../../assets/svg/logo_icon1.png'
 import login from '../../../assets/svg/login.svg'
+import calzalogo from '../../../assets/jpg/calzalogo.jpeg'
 
 
 const CustomNavbar = () => {
@@ -36,12 +36,16 @@ const CustomNavbar = () => {
       {style()}
       <StickyNav length='40'> 
       <img src={logo} alt="" width="70" height="70" />
-        insert your Navbar Component here
+        navabar
       <img src={login} alt="" width="50" height="50" />
 
         </StickyNav>
       <div className='style'>
-        <img src={cardlogo} alt="" />
+        <div className="d-flex justify-content-center align-items-center text-center vh-100" style= {{backgroundImage : "linear-gradient(rgb(3, 246, 226),rgb(5, 202, 241),rgb(11, 3, 242))" }}>
+          <img src={logo} alt="Sigecoin" width="400" height="400"/>
+          <img src={calzalogo} alt="CalzaAlbert" width="600" height="400" className='calzalogo' style={{'borderRadius':'15px'}}/>
+
+        </div>
       </div>
     </div>
   )
