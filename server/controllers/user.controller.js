@@ -163,10 +163,10 @@ const resetPassword = asyncHandler(async (req, res) => {
     const { password } = req.body;
     const { resetToken } = req.params;
 
-    // Find token on db and check if not expires
+    // Buscar el token en la base de datos
     const userToken = await Token.findOne({
       token: resetToken,
-      expiresAt: { $gt: Date.now() },
+      expiresAt: { $gt: Date.now() }, // Verificar si el token aún no ha expirado
     });
 
     if (!userToken) {
@@ -174,31 +174,36 @@ const resetPassword = asyncHandler(async (req, res) => {
       throw new Error("Token inválido o expirado");
     }
 
-    const user = await User.findOne({ _id: userToken.userId });
+    // Encontrar al usuario asociado con el token
+    const user = await User.findById(userToken.userId);
 
     if (!user) {
       res.status(404);
       throw new Error("Usuario no encontrado");
     }
 
-    // Validate new password
+    // Validar la nueva contraseña (por ejemplo, longitud mínima, complejidad, etc.)
     if (!password || password.length < 6) {
       res.status(400);
       throw new Error("La contraseña debe tener al menos 6 caracteres");
     }
 
-    // New password
-    user.password = password;
+    // Encriptar la nueva contraseña antes de guardarla
+    const salt = bcrypt.genSaltSync(10);
+    const hashedPassword = bcrypt.hashSync(password, salt);
 
-    // Save new password on DB
+    // Guardar la contraseña encriptada en el usuario
+    user.password = hashedPassword;
+
+    // Guardar el usuario actualizado en la base de datos
     await user.save();
 
-    // Delete token on DB
-    await userToken.remove();
+    // Eliminar el token usado
+    await userToken.deleteOne();
 
-    // Response Success
+    // Respuesta de éxito
     res.status(200).json({
-      message: "Su contraseña se cambio correctamente, por favor iniciar sesión.",
+      message: "Contraseña cambiada exitosamente. Puedes iniciar sesión con tu nueva contraseña.",
     });
   } catch (error) {
     console.error("Error durante el restablecimiento de contraseña:", error);

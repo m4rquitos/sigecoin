@@ -4,11 +4,15 @@ import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Logo from '../../../assets/svg/logo_icon1.png'
+import { useParams } from 'react-router-dom';
+
 
 
 const Resetpassword = () => {
     const [password, setPassword] = useState();
     const navigate = useNavigate();
+  const { resetToken } = useParams();
+
 
     const handleSubmit = (event) => {
         event.preventDefault();
