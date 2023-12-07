@@ -18,12 +18,11 @@ const Login = () => {
         .then(result => {
             console.log(result);
             if(result.status === 200){
-                console.log("Login Success");
-                alert('Login successful!')
+                alert('Inicio de sesión exitoso!')
                 navigate('/home');
             }
             else{
-                alert('Incorrect password! Please try again.');
+                alert('¡Contraseña incorrecta! Inténtalo de nuevo.');
             }
         })
         .catch(err => console.log(err));
@@ -33,17 +32,17 @@ const Login = () => {
     return (
         <div>
             <div className="d-flex justify-content-center align-items-center text-center vh-100 " style= {{backgroundImage : "linear-gradient(rgb(3, 246, 226),rgb(5, 202, 241),rgb(11, 3, 242))" ,flexDirection: "column"}}>
-            <img src={Logo} alt="" style={{width : '25%'}} />
-                <div className="bg-white p-3 rounded" style={{width: "450px"}}>
+            <img src={Logo} alt="" style={{width : '15%'}} />
+                <div className="bg-white p-3 rounded" style={{width: "370px"}}>
                     <h2 className='mb-3 text-primary'>Ingresar</h2>
                     <form onSubmit={handleSubmit}>
                         <div className="mb-3 text-start">
                             <label htmlFor="exampleInputEmail1" className="form-label">
-                                <strong>Identificación de correo</strong>
+                                <strong>Correo Electrónico</strong>
                             </label>
                             <input 
                                 type="email" 
-                                placeholder="Ingrese correo electrónico"
+                                placeholder="Introduzca su correo electrónico"
                                 className="form-control" 
                                 id="exampleInputEmail1" 
                                 onChange={(event) => setEmail(event.target.value)}
@@ -56,12 +55,14 @@ const Login = () => {
                             </label>
                             <input 
                                 type="password" 
-                                placeholder="Introducir la contraseña"
+                                placeholder="Introduzca su contraseña"
                                 className="form-control" 
                                 id="exampleInputPassword1" 
                                 onChange={(event) => setPassword(event.target.value)}
                                 required
                             />
+                        <a href="/forgot" target="_blank" rel="noopener noreferrer">¿Olvidaste tu contraseña?</a>
+
                         </div>
                         <button type="submit" className="btn btn-primary">Ingresar</button>
                     </form>

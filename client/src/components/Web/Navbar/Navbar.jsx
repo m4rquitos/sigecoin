@@ -16,6 +16,7 @@ const CustomNavbar = () => {
           padding: 15px;
           display: flex;
           align-items: center;
+          
         }
         .scrollNav {
           transition: all 0.5s ease-in;
@@ -28,6 +29,7 @@ const CustomNavbar = () => {
           padding-top: 80px;
           
         }
+        
       `}</style>
     )
   }
@@ -36,14 +38,14 @@ const CustomNavbar = () => {
       {style()}
       <StickyNav length='40'> 
       <img src={logo} alt="" width="70" height="70" />
-        navabar
-      <img src={login} alt="" width="50" height="50" />
+        Sigecoin <div>
+      <img src={login} alt="" width="50" height="50" /></div>
 
         </StickyNav>
       <div className='style'>
         <div className="d-flex justify-content-center align-items-center text-center vh-100" style= {{backgroundImage : "linear-gradient(rgb(3, 246, 226),rgb(5, 202, 241),rgb(11, 3, 242))" }}>
-          <img src={logo} alt="Sigecoin" width="400" height="400"/>
-          <img src={calzalogo} alt="CalzaAlbert" width="600" height="400" className='calzalogo' style={{'borderRadius':'15px'}}/>
+          <img src={logo} alt="Sigecoin" width="25%" height="35%"/>
+          <img src={calzalogo} alt="CalzaAlbert" width="30%" height="35%" className='calzalogo' style={{'borderRadius':'15px'}}/>
 
         </div>
       </div>

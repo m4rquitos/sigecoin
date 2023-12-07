@@ -38,7 +38,7 @@ const Resetpassword = () => {
         <div>
             <div className="d-flex justify-content-center align-items-center text-center vh-100 " style= {{backgroundImage : "linear-gradient(rgb(3, 246, 226),rgb(5, 202, 241),rgb(11, 3, 242))" ,flexDirection: "column"}}>
             <img src={Logo} alt="" style={{width : '25%'}} />
-                <div className="bg-white p-3 rounded" style={{width: "450px"}}>
+                <div className="bg-white p-3 rounded" style={{width: "370px"}}>
                     <h2 className='mb-3 text-primary'>Restablecer Contraseña</h2>
                     <form onSubmit={handleSubmit}>
                        
