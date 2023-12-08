@@ -8,11 +8,9 @@ const expressFile = require('express-fileupload')
 // Importar rutas
 const authRoutes = require('./router/auth.router');
 const userRoutes = require('./router/user.router');
-const menuRoutes = require('./router/menu.router');
 const facturaRoutes = require('./router/factura.router');
 const productRoute = require('./router/product.routes');
 const proveedorRoute = require('./router/proveedor.router.js');
-const cajaRoutes = require('./router/caja.router.js');
 const ventaRoutes = require('./router/venta.router.js')
 
 const app = express();
@@ -30,10 +28,8 @@ app.use(cors());
 app.use(`/api/${API_VERSION}`, productRoute);
 app.use(`/api/${API_VERSION}`, authRoutes);
 app.use(`/api/${API_VERSION}`, userRoutes);
-app.use(`/api/${API_VERSION}`, menuRoutes);
 app.use(`/api/${API_VERSION}`, facturaRoutes);
 app.use(`/api/${API_VERSION}`, proveedorRoute);
-app.use(`/api/${API_VERSION}`, cajaRoutes);
 app.use(`/api/${API_VERSION}`, ventaRoutes);
 
 

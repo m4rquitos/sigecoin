@@ -4,7 +4,7 @@ import { FaCartPlus } from "react-icons/fa";
 import { CiCirclePlus, CiCircleMinus } from "react-icons/ci";
 import { MdDelete, MdEdit } from "react-icons/md";
 import { IoMdCloseCircle } from "react-icons/io";
-import CustomNavbar from "../../../components/web/Navbar/Navbar";
+import CustomNavbar from '../../../components/Web/Navbar/CustomNavbar'
 
 
 import "./customStyles.css";
