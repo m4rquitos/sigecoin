@@ -30,38 +30,7 @@ const Login = () => {
           .catch(err => console.log(err));
       };
 
-    const refreshAccessToken = () => {
-        const refreshToken = localStorage.getItem('refreshToken');
-        console.log(refreshToken)
-        axios.post('http://localhost:3001/api/v1/auth/refresh', { token: refreshToken })
-            .then(response => {
-                localStorage.setItem('accessToken', response.data.accessToken);
-                
-                handleSubmit();
-            })
-            .catch(err => {
-                if (err.response && err.response.status === 401) {
-                    console.log("Error al actualizar el token. Reintentando");
-                    refreshAccessToken();
-                } 
-            })
-            
-            .then(result => {
-                console.log(result);
-                if (result.status === 200) {
-                    localStorage.setItem('accessToken', result.data.access);
-                    localStorage.setItem('refreshToken', result.data.refresh);
-                    console.log("Login Success");
-                    alert('Login successful!');
-                    navigate('/home');
-                } else {
-                    alert('Incorrect password! Please try again.');
-                }
-            })
-            
-    }
-    refreshAccessToken()
-
+   
 
     return (
         <div>
