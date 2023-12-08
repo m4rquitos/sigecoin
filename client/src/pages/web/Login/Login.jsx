@@ -13,20 +13,22 @@ const Login = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        
-        axios.post( 'http://localhost:3001/api/v1/auth/login/', {email, password})
-        .then(result => {
-            console.log(result);
-            if(result.status === 200){
-                alert('Inicio de sesión exitoso!')
-                navigate('/home');
+      
+        axios.post('http://localhost:3001/api/v1/auth/login/', { email, password })
+          .then(result => {
+            if (result.status === 200) {
+              if (result.data.role === 'admin') {
+                navigate('/admin/newsletter'); // Redirige a la página de administrador si el usuario es un admin
+              } else if (result.data.role === 'user') {
+                navigate('/home'); // Redirige a la página de usuario normal si el usuario es un usuario común
+              }
+              alert('Inicio de sesión exitoso!');
+            } else {
+              alert('¡Contraseña incorrecta! Inténtalo de nuevo.');
             }
-            else{
-                alert('¡Contraseña incorrecta! Inténtalo de nuevo.');
-            }
-        })
-        .catch(err => console.log(err));
-    }
+          })
+          .catch(err => console.log(err));
+      };
 
     const refreshAccessToken = () => {
         const refreshToken = localStorage.getItem('refreshToken');

@@ -1,0 +1,71 @@
+/* CustomNavbar.css */
+
+.nav {
+    transition: all 0.1s linear;
+    position: absolute;
+    z-index: 2000;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: transparent; /* Fondo transparente por defecto */
+    display: flex;
+    justify-content: space-around;
+  }
+  .scrollNav {
+    transition: all 0.5s ease-in;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    background-image: linear-gradient(rgba(3, 246, 226, 0.5), rgba(5, 202, 241, 0.5), rgba(11, 3, 242, 0.5));
+    width: 100%;
+    border-bottom: 1px solid #dddddd;
+  }
+  
+  
+  .style {
+    padding-top: 80px;
+    margin-bottom: 4rem;
+  }
+  
+  .sigelogo{
+    width: 200px;
+    height: 200px;
+  }
+  .calzalogo{
+    width: 250px;
+    height: 200px;
+    border-radius: 10px;
+  }
+  p{
+    margin-top: 3rem;
+    width: 800px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: #fff;
+    text-align: center;
+
+  }
+  h1{
+    /* Estilo llamativo para el nombre de la empresa con colores del logo */
+font-family: 'Montserrat', sans-serif; /* Fuente moderna */
+font-size: 3.5rem; /* Tamaño grande para impacto visual */
+color: #03f6e2; /* Color tomado del logo */
+text-transform: uppercase; /* Convertir texto a mayúsculas */
+letter-spacing: 2px; /* Espaciado entre letras */
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra suave para resaltar */
+
+  }
+  @media (max-width: 768px) {
+    .sigelogo{
+      width: 120px;
+      height: 120px;
+    }
+    .calzalogo{
+      width: 150px;
+      height: 120px;
+    }
+  }
