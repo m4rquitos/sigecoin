@@ -40,13 +40,11 @@ const CustomNavbar = () => {
           </div>
           
           <p>
-¡Bienvenido a Calzado Albert Sport en convenio con Sigecoin!
+         <div className='initial'>
+         "¡Descubre en Calzado Albert Sport, con Sigecoin, una amplia selección de calzado de moda y comodidad! Desde zapatillas deportivas innovadoras hasta elegantes modelos para ocasiones especiales.
+          Explora nuestro catálogo, encuentra las últimas tendencias y disfruta de una experiencia de compra segura desde casa. ¡Prepárate para caminar con estilo y confianza!"</div>
+</p>
 
-Sumérgete en el mundo del calzado con estilo y calidad. En nuestra tienda en línea, encontrarás una amplia gama de zapatos que combinan la moda y el confort. Desde zapatillas deportivas de última generación hasta elegantes modelos para ocasiones especiales, ¡aquí encontrarás lo que necesitas!
-
-Explora nuestro catálogo y descubre las últimas tendencias en calzado que se adaptan a tu estilo de vida. Con la colaboración de Sigecoin, ofrecemos una experiencia de compra segura y conveniente para que encuentres el par perfecto desde la comodidad de tu hogar.
-
-¡Prepárate para dar pasos con confianza y estilo!</p>
         </div>
 
       </div>
