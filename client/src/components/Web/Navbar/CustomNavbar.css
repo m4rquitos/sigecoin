@@ -38,7 +38,7 @@
     height: 200px;
     border-radius: 10px;
   }
-  p{
+  /*p{
     margin-top: 3rem;
     width: 800px;
     font-family: 'Montserrat', sans-serif;
@@ -48,7 +48,7 @@
     color: #fff;
     text-align: center;
 
-  }
+  }*/
   h1{
     /* Estilo llamativo para el nombre de la empresa con colores del logo */
 font-family: 'Montserrat', sans-serif; /* Fuente moderna */
