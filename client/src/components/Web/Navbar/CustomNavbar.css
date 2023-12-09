@@ -73,3 +73,18 @@ text-shadow: 3px 3px 3px; /* Sombra suave para resaltar */
       height: 120px;
     }
   }
+  /* Estilos para el enlace de la ubicación del almacén */
+a {
+  display: inline-block;
+  padding: 0px 20px;
+  background-color: #3498db;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 10px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+a:hover {
+  background-color: #2e9de7;
+}

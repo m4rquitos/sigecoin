@@ -36,23 +36,19 @@ const CustomNavbar = () => {
         <div className= "d-flex justify-content-center align-items-center text-center vh-100" style={{backgroundImage: "linear-gradient(rgb(3, 246, 226), rgb(5, 202, 241), rgb(11, 3, 242))", flexDirection: "column"}}>
           <div className="d-flex justify-content-center align-items-center">
             <img src={logo} alt="Sigecoin" className='sigelogo' />
-          <img src={calzalogo} alt="CalzaAlbert" className='calzalogo' />
+            <img src={calzalogo} alt="CalzaAlbert" className='calzalogo' />
           </div>
-          
-          <p>
-         <div className='initial'>
-         "¡Descubre en Calzado Albert Sport, con Sigecoin, una amplia selección de calzado de moda y comodidad! Desde zapatillas deportivas innovadoras hasta elegantes modelos para ocasiones especiales.
-          Explora nuestro catálogo, encuentra las últimas tendencias y disfruta de una experiencia de compra segura desde casa. ¡Prepárate para caminar con estilo y confianza!"</div>
-</p>
-
+          <p className='initial'>
+          ¡Descubre en Calzado Albert Sport, con Sigecoin, una amplia selección de calzado de moda y comodidad ! Encuéntranos en Garzón, Huila en el local 367, frente al bingo en la galería.
+           ¡Prepárate para caminar con estilo y confianza!
+            <a href="https://maps.app.goo.gl/WJn4CGukNdzeLnNn8" target="_blank" rel="noopener noreferrer">Ubicacion del Almacen</a>
+          </p>
         </div>
-
       </div>
     </div>
   );
 };
 
 export default CustomNavbar;
-
 
 
