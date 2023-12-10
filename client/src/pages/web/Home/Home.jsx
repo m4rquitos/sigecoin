@@ -6,6 +6,8 @@ import { MdDelete, MdEdit } from "react-icons/md";
 import { IoMdCloseCircle } from "react-icons/io";
 import CustomNavbar from '../../../components/Web/Navbar/CustomNavbar'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import "./customStyles.css";
 
@@ -43,6 +45,30 @@ const Home = () => {
         item.codigoProduct.toLowerCase().includes(filterCode) &&
         item.nombreProduct.toLowerCase().includes(filterName)
     );
+  };
+
+  const generarFactura = async () => {
+    try {
+      const response = await axios.post('http://localhost:3001/api/v1/generarFactura', {
+        nombre: 'Cliente',
+        vendedor: 'JuanFernando',
+        carrito: cart.map(item => ({ ...item, nombreProduct: item.nombreProduct || 'Nombre Desconocido' })),
+      });
+
+      const newArray = cart.map(item => [
+        item.nombreProduct,
+        item.codigoProduct,
+        item.precioUni,
+        item.proveedor
+      ]);
+
+      toast.success('Pedido Tomado de Manera Exitosa')
+      setCart([]);
+      fetchData()
+      btnCloseCart()
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   const addToCart = (product) => {
@@ -146,7 +172,8 @@ const Home = () => {
 
   return (
     <>
-    <CustomNavbar />
+      <ToastContainer />
+      <CustomNavbar />
       <section>
         <FaCartPlus className="btnOpenCart" onClick={btnOpenCart} />
         <span className="cartCount">{cart.length}</span>
@@ -207,6 +234,7 @@ const Home = () => {
             <span>Total de Productos: {getTotalQuantity()}</span>
             <span>Total de Venta: ${getTotalSale().toFixed(2)}</span>
           </div>
+          <button className='btnFactura p-1' onClick={generarFactura}>Mandar Orden</button>
         </div>
       </section>
     </>

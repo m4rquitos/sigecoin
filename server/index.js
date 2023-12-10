@@ -7,8 +7,8 @@ const {
     DB_PASSWORD,
     DB_HOST,
     API_VERSION,
-    IP_SERVER 
-    } = require("./constants.js")
+    IP_SERVER
+} = require("./constants.js")
 
 const PORT = process.env.POST || 3001
 
@@ -19,12 +19,12 @@ mongoose.connect(
     (error) => {
         if (error) throw error
 
-    app.listen(PORT, () => {
-       console.log("#####################")
-       console.log("#### <JoseRDev /> ###")
-       console.log("#####################")
-       console.log(`http://${IP_SERVER}:${PORT}/api/${API_VERSION}`)
-    })
+        app.listen(PORT, () => {
+            console.log("#####################")
+            console.log("#### <JoseRDev /> ###")
+            console.log("#####################")
+            console.log(`http://${IP_SERVER}:${PORT}/api/${API_VERSION}`)
+        })
 
     }
 )
