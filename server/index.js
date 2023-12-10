@@ -10,7 +10,7 @@ const {
     IP_SERVER
 } = require("./constants.js")
 
-const PORT = process.env.POST || 3001
+const PORT = process.env.PORT || 3001
 
 mongoose.set('strictQuery', false)
 
