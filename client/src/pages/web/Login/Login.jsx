@@ -14,7 +14,7 @@ const Login = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         
-        axios.post( 'http://localhost:3001/api/v1/auth/login/', {email, password})
+        axios.post( `${import.meta.env.VITE_API_URL}/auth/login/`, {email, password})
         .then(result => {
             console.log(result);
             if(result.status === 200){

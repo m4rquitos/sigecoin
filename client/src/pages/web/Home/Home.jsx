@@ -25,7 +25,7 @@ const Home = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3001/api/v1/getProducts"
+        `${import.meta.env.VITE_API_URL}/getProducts`
       );
       const productsWithStock = response.data.map((product) => ({
         ...product,
@@ -155,7 +155,7 @@ const Home = () => {
   {filterData(products).map((product) => (
     <div key={product.codigoProduct} className='cardPedido'>
       <div className='card-image'>
-        <img alt='Product' src={`http://localhost:3001/${product.images}`} width='100px' />
+        <img alt='Product' src={`${import.meta.env.VITE_BASE_URL}/${product.images}`} width='100px' />
       </div>
       <div className='card-details'>
         <h3>{product.nombreProduct}</h3>
@@ -176,7 +176,7 @@ const Home = () => {
               <li className="cartContainer" key={item.codigoProduct}>
                 <img
                   alt="Product"
-                  src={`http://localhost:3001/${item.images}`}
+                  src={`${import.meta.env.VITE_BASE_URL}/${item.images}`}
                   width={"90px"}
                 />
                 <span style={{ width: "14ch" }}>{item.nombreProduct}</span>

@@ -56,7 +56,7 @@ const ProductCreateModal = ({ isOpen, onRequestClose, fetchData }) => {
                 },
             };
 
-            const response = await axios.post('http://localhost:3001/api/v1/registerProduct', formData, config);
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/registerProduct`, formData, config);
             console.log(response.data);
             onRequestClose();
             fetchData();

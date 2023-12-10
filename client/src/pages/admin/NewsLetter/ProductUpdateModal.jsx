@@ -74,7 +74,7 @@ const ProductUpdateModal = ({ isOpen, onRequestClose, fetchData, selectedProduct
                 },
             };
 
-            const url = `http://localhost:3001/api/v1/updateProduct/${codigoProduct}`;
+            const url = `${import.meta.env.VITE_API_URL}/updateProduct/${codigoProduct}`;
             const response = await axios.patch(url, formData, config);
             console.log(response.data);
             onRequestClose();
