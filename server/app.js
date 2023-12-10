@@ -23,7 +23,12 @@ app.use(bodyParser.json());
 app.use(express.static('uploads'));
 app.use(expressFile())
 
-app.use(cors());
+app.use(
+	cors({
+		origin: process.env.FRONTEND_URL,
+		credentials: true,
+	})
+);
 
 app.use(`/api/${API_VERSION}`, productRoute);
 app.use(`/api/${API_VERSION}`, authRoutes);
