@@ -23,7 +23,7 @@ const navigate = useNavigate();
 
   function output(){
     alert('Haz cerrado sesión');
-    navigate('/home');
+    navigate('/login')
   }
 
   useEffect(() => {
