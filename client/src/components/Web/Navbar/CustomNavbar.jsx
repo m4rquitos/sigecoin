@@ -3,10 +3,13 @@ import logo from '../../../assets/svg/logo_icon1.png';
 import login from '../../../assets/svg/login.svg';
 import calzalogo from '../../../assets/jpg/calzalogo.jpeg';
 import './CustomNavbar.css'; // Estilos CSS para el Navbar
-import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+
 
 
 const CustomNavbar = () => {
+const navigate = useNavigate();
+
   const [isSticky, setIsSticky] = useState(false);
 
   // Función para manejar el evento de scroll
@@ -20,6 +23,7 @@ const CustomNavbar = () => {
 
   function output(){
     alert('Haz cerrado sesión');
+    navigate('/home');
   }
 
   useEffect(() => {
@@ -35,9 +39,9 @@ const CustomNavbar = () => {
         <img src={logo} alt="" width="70" height="70" />
         <h1>Sigecoin</h1> 
         <div>
-        <Link to='/login' className="btn btn-secondary" onClick={output}>
+        <button className="btn btn-secondary" onClick={output}>
                 
-          <img src={login} alt="" width="50" height="50" /></Link>
+          <img src={login} alt="" width="50" height="50" /></button>
         </div>
       </div>
       <div className='style'>
