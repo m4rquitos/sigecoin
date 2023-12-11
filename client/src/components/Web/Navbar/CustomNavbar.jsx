@@ -19,7 +19,7 @@ const CustomNavbar = () => {
   };
 
   function output(){
-    <Alert severity="success">Haz cerrado sesión</Alert>
+    alert('Haz cerrado sesión');
   }
 
   useEffect(() => {
