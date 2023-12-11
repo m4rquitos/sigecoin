@@ -16,7 +16,7 @@ const Register = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         
-        axios.post( 'http://localhost:3001/api/v1/auth/register/', {firstname, email, password})
+        axios.post( `${import.meta.env.VITE_API_URL}/auth/register/`, {firstname, email, password})
         .then(result => {
             console.log(result);
             if(result.data === "Already registered"){

@@ -23,7 +23,12 @@ app.use(bodyParser.json());
 app.use(express.static('uploads'));
 app.use(expressFile())
 
-app.use(cors());
+app.use(
+	cors({
+		origin: process.env.FRONTEND_URL,
+		credentials: true,
+	})
+);
 
 app.use(`/api/${API_VERSION}`, productRoute);
 app.use(`/api/${API_VERSION}`, authRoutes);
@@ -32,5 +37,10 @@ app.use(`/api/${API_VERSION}`, facturaRoutes);
 app.use(`/api/${API_VERSION}`, proveedorRoute);
 app.use(`/api/${API_VERSION}`, ventaRoutes);
 
+app.use((req, res, next) => {
+	res.status(404).json({
+		message: 'EndPoint No Encontrado 😴',
+	});
+});
 
 module.exports = app;

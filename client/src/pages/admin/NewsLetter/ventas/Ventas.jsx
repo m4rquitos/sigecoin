@@ -13,7 +13,7 @@ const Ventas = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:3001/api/v1/factura');
+            const response = await axios.get(`${import.meta.env.VITE_API_URL}/factura`);
             const ventasData = response.data.response;
             setVentas(ventasData);
 

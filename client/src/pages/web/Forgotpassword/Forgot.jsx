@@ -11,7 +11,7 @@ const Forgot = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         
-        axios.post( 'http://localhost:3001/api/v1/forgot', {email})
+        axios.post( `${import.meta.env.VITE_API_URL}/forgot`, {email})
         .then(result => {
             console.log(result);
             if(result.status === 200){

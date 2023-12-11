@@ -17,7 +17,7 @@ const Resetpassword = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         
-        axios.post( `http://localhost:3001/api/v1/resetpassword/${resetToken}`, {password})
+        axios.post( `${import.meta.env.VITE_API_URL}/resetpassword/${resetToken}`, {password})
         
         .then(result => {
             console.log(result);

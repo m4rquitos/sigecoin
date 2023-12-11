@@ -33,7 +33,7 @@ export const NewsLetter = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/api/v1/getProducts');
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/getProducts`);
       const productsWithStock = response.data.map(product => ({ ...product, stock: product.cantidad }));
       setProducts(productsWithStock);
     } catch (error) {
@@ -95,7 +95,7 @@ export const NewsLetter = () => {
     const confirmDelete = window.confirm(`¿Seguro que desea eliminar el producto ${product.nombreProduct}?`);
     if (confirmDelete) {
       try {
-        await axios.delete(`http://localhost:3001/api/v1/deleteProduct/${product.codigoProduct}`);
+        await axios.delete(`${import.meta.env.VITE_API_URL}/deleteProduct/${product.codigoProduct}`);
         fetchData();
       } catch (error) {
         console.error(error);
@@ -105,7 +105,7 @@ export const NewsLetter = () => {
 
   const generarFactura = async () => {
     try {
-      const response = await axios.post('http://localhost:3001/api/v1/generarFactura', {
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/generarFactura`, {
         nombre: 'Cliente',
         vendedor: 'JuanFernando',
         carrito: cart.map(item => ({ ...item, nombreProduct: item.nombreProduct || 'Nombre Desconocido' })),
@@ -262,7 +262,7 @@ export const NewsLetter = () => {
                 <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                   <img
                     alt="Product"
-                    src={`http://localhost:3001/${rowData.images}`}
+                    src={`${import.meta.env.VITE_BASE_URL}/${rowData.images}`}
                     style={{ padding: '.7em 0' }}
                     width={'100px'}
                   />
@@ -314,7 +314,7 @@ export const NewsLetter = () => {
           <ul className='cardUl'>
             {cart.map((item) => (
               <li className='cartContainer' key={item.codigoProduct}>
-                <img alt="Product" src={`http://localhost:3001/${item.images}`} style={{ padding: '.7em 0' }} width={'90px'} />
+                <img alt="Product" src={`/${item.images}`} style={{ padding: '.7em 0' }} width={'90px'} />
                 <span style={{ width: '14ch' }}>{item.nombreProduct}</span>
                 <div>
                   <span>Cantidad: {item.cantidad}</span>
