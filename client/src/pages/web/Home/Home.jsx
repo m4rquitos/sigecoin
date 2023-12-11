@@ -186,8 +186,8 @@ const Home = () => {
       </div>
       <div className='card-details'>
         <h3>{product.nombreProduct}</h3>
-        <p>Precio: ${product.precioUni}</p>
-        <p>ble: {product.stock}</p>
+        <p>Precio: {product.precioUni}</p>
+        <p>Disponible: {product.stock}</p>
         <p>Descripcion: {product.descripcion}</p>
         <button className='add-to-cart-button' onClick={() => addToCart(product)}>Añadir al Carrito</button>
       </div>
