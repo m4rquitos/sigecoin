@@ -6,7 +6,6 @@ export function AdminLayout(props) {
     const { children } = props
   return (
     <div>
-      <h2>se usa el AdminLayout</h2>
       {children}
     </div>
   )

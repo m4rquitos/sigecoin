@@ -3,6 +3,8 @@ import logo from '../../../assets/svg/logo_icon1.png';
 import login from '../../../assets/svg/login.svg';
 import calzalogo from '../../../assets/jpg/calzalogo.jpeg';
 import './CustomNavbar.css'; // Estilos CSS para el Navbar
+import { Link } from "react-router-dom";
+
 
 const CustomNavbar = () => {
   const [isSticky, setIsSticky] = useState(false);
@@ -29,7 +31,8 @@ const CustomNavbar = () => {
         <img src={logo} alt="" width="70" height="70" />
         <h1>Sigecoin</h1> 
         <div>
-          <img src={login} alt="" width="50" height="50" />
+        <Link to='/login' className="btn btn-secondary">
+          <img src={login} alt="" width="50" height="50" /></Link>
         </div>
       </div>
       <div className='style'>
