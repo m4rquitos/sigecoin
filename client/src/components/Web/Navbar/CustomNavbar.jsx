@@ -18,6 +18,10 @@ const CustomNavbar = () => {
     }
   };
 
+  function output(){
+    <Alert severity="success">Haz cerrado sesión</Alert>
+  }
+
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => {
@@ -31,8 +35,8 @@ const CustomNavbar = () => {
         <img src={logo} alt="" width="70" height="70" />
         <h1>Sigecoin</h1> 
         <div>
-        <Link to='/login' className="btn btn-secondary">
-                alert('Sesión Cerrada');
+        <Link to='/login' className="btn btn-secondary" onClick={output}>
+                
           <img src={login} alt="" width="50" height="50" /></Link>
         </div>
       </div>
@@ -45,7 +49,7 @@ const CustomNavbar = () => {
           <p className='initial'>
           ¡Descubre en Calzado Albert Sport en convenio con Sigecoin. Con una amplia selección de calzado de moda y comodidad ! Encuéntranos en Garzón Huila en el local 367 de la Galeria frente al bingo.
             <a href="https://maps.app.goo.gl/WJn4CGukNdzeLnNn8" target="_blank" rel="noopener noreferrer">Punto físico</a> <br />
-            O comunícate con nosotros al WhatsApp: +57 3142051265
+            O comunícate con nosotros al WhatsApp: +57 3142051265 <br />
            ¡Prepárate para caminar con estilo y confianza! <br />
             
           </p>
